@@ -1,0 +1,224 @@
+/* ================================================================
+   Ocho Coffee House — RTL stylesheet
+   Applied via [dir="rtl"] on <html> when Arabic is active.
+   Only overrides what differs from the LTR layout; base styles
+   remain in main.css so there is no duplication.
+   ================================================================ */
+
+/* ── Arabic typography ────────────────────────────────────────── */
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap");
+
+[dir="rtl"] body,
+[dir="rtl"] button,
+[dir="rtl"] input,
+[dir="rtl"] textarea,
+[dir="rtl"] select {
+  font-family: "Cairo", "Poppins", sans-serif;
+  letter-spacing: 0;          /* Arabic doesn't use Latin letter-spacing */
+  line-height: 1.75em;
+}
+
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3,
+[dir="rtl"] h4,
+[dir="rtl"] h5,
+[dir="rtl"] h6 {
+  font-family: "Cairo", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+/* ── Header top bar ────────────────────────────────────────────── */
+[dir="rtl"] .header-top .row {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .header-top-right ul {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .header-top-right ul li {
+  border-right: none;
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  padding-left: 8px;
+  padding-right: 0;
+}
+
+[dir="rtl"] .header-top-right ul li:first-child {
+  border-left: none;
+}
+
+/* ── Header main row (logo + nav + toggle) ─────────────────────── */
+[dir="rtl"] #header .container > .row {
+  flex-direction: row-reverse;
+}
+
+/* ── Navigation ────────────────────────────────────────────────── */
+[dir="rtl"] .nav-menu > li {
+  float: right;
+}
+
+[dir="rtl"] .nav-menu ul {
+  left: auto;
+  right: 0;
+  text-align: right;
+}
+
+/* ── Language toggle ───────────────────────────────────────────── */
+/* Toggle already sits inline; just ensure spacing flips */
+[dir="rtl"] .lang-toggle-btn {
+  margin-left: 0;
+  margin-right: 20px;
+}
+
+/* ── Hero / banner ─────────────────────────────────────────────── */
+[dir="rtl"] .banner-content {
+  text-align: right;
+}
+
+/* Keep the typed brand name (Latin script) visually LTR */
+[dir="rtl"] .ocho-hero-title {
+  direction: ltr;
+  text-align: right;
+  unicode-bidi: bidi-override; /* only needed for the cursor glyph */
+}
+
+[dir="rtl"] .banner-content h5 {
+  direction: rtl;
+  unicode-bidi: normal;
+}
+
+/* ── About / video section ─────────────────────────────────────── */
+[dir="rtl"] .video-sec-area .row {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .video-left {
+  text-align: right;
+}
+
+[dir="rtl"] .video-left h6,
+[dir="rtl"] .video-left h1,
+[dir="rtl"] .video-left p {
+  text-align: right;
+}
+
+/* ── Menu section ──────────────────────────────────────────────── */
+[dir="rtl"] .menu-area .title {
+  text-align: right;
+}
+
+[dir="rtl"] .menu-area .title.text-center {
+  text-align: center;
+}
+
+[dir="rtl"] .single-menu {
+  text-align: right;
+}
+
+[dir="rtl"] .title-div {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .price {
+  float: left !important;
+}
+
+/* ── Gallery ───────────────────────────────────────────────────── */
+[dir="rtl"] .gallery-area .title {
+  text-align: right;
+}
+
+[dir="rtl"] .gallery-area .title.text-center {
+  text-align: center;
+}
+
+/* Gallery scrolls LTR inside regardless of page direction */
+[dir="rtl"] .ocho-gallery-wrap {
+  direction: ltr;
+}
+
+/* But captions inside cards stay readable in RTL */
+[dir="rtl"] .ocho-gallery-card span {
+  direction: rtl;
+  text-align: right;
+}
+
+/* ── Reviews / stats ───────────────────────────────────────────── */
+[dir="rtl"] .review-area .title {
+  text-align: right;
+}
+
+[dir="rtl"] .review-area .title.text-center {
+  text-align: center;
+}
+
+[dir="rtl"] .single-review {
+  text-align: right;
+}
+
+[dir="rtl"] .single-review .title {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .single-review .star {
+  margin-right: 0;
+  margin-left: auto;
+}
+
+/* Stats row: keep centered */
+[dir="rtl"] .single-counter {
+  text-align: center;
+}
+
+/* ── Footer ────────────────────────────────────────────────────── */
+[dir="rtl"] .footer-area .single-footer-widget {
+  text-align: right;
+}
+
+[dir="rtl"] .footer-social {
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
+/* ── Mobile nav ────────────────────────────────────────────────── */
+/* Flip slide-in side */
+[dir="rtl"] #mobile-nav {
+  left: auto;
+  right: -260px;
+  transition: 0.4s;
+}
+
+[dir="rtl"] body.mobile-nav-active #mobile-nav {
+  right: 0;
+  left: auto;
+}
+
+/* Toggle button moves to the left */
+[dir="rtl"] #mobile-nav-toggle {
+  right: auto;
+  left: 15px;
+}
+
+[dir="rtl"] #mobile-nav ul li a {
+  text-align: right;
+  padding-right: 15px;
+  padding-left: 22px;
+}
+
+[dir="rtl"] #mobile-nav ul .menu-has-children i {
+  right: auto;
+  left: 0;
+}
+
+/* ── Utility: directional icons ────────────────────────────────── */
+/* Chevron / arrows in RTL context */
+[dir="rtl"] .lnr-arrow-right::before { content: "\e87b"; } /* arrow-left */
+[dir="rtl"] .lnr-arrow-left::before  { content: "\e87c"; } /* arrow-right */
+
+/* ── Magnific Popup ─────────────────────────────────────────────── */
+[dir="rtl"] .mfp-close {
+  left: 0;
+  right: auto;
+}

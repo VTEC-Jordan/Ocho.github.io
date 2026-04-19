@@ -1,4 +1,4 @@
-	<!DOCTYPE html>
+﻿	<!DOCTYPE html>
 	<html lang="en" class="no-js">
 	<head>
 		<!-- Mobile Specific Meta -->
@@ -16,7 +16,7 @@
 		<!-- Site Title -->
 		<title>Ocho Coffee House</title>
 
-		<link href="//fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+		<link href="//fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500&family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
 			<!--
 			CSS
 			============================================= -->
@@ -26,6 +26,7 @@
 			<link rel="stylesheet" href="css/magnific-popup.css">
 			<link rel="stylesheet" href="css/owl.carousel.css">
 			<link rel="stylesheet" href="css/main.css">
+			<link rel="stylesheet" href="css/rtl.css">
 		</head>
 		<body>
 
@@ -36,10 +37,10 @@
 				  			<div class="col-lg-8 col-sm-4 col-8 header-top-right no-padding">
 				  				<ul>
 				  					<li>
-				  						Daily: 8AM–12AM
+				  						<span data-i18n="header.daily">Daily: 8AM–12AM</span>
 				  					</li>
 				  					<li>
-				  						Fri: 2:30PM–12AM
+				  						<span data-i18n="header.fri">Fri: 2:30PM–12AM</span>
 				  					</li>
 				  					<li>
 				  						<a href="https://www.instagram.com/ochocoffeehouse/" target="_blank">@ochocoffeehouse</a>
@@ -56,13 +57,18 @@
 				      </div>
 				      <nav id="nav-menu-container">
 				        <ul class="nav-menu">
-				          <li class="menu-active"><a href="#home">Home</a></li>
-				          <li><a href="#about">About</a></li>
-				          <li><a href="#coffee">Menu</a></li>
-				          <li><a href="#gallery">Gallery</a></li>
-				          <li><a href="#visit">Visit Us</a></li>
+				          <li class="menu-active"><a href="#home" data-i18n="nav.home">Home</a></li>
+				          <li><a href="#about" data-i18n="nav.about">About</a></li>
+				          <li><a href="#coffee" data-i18n="nav.menu">Menu</a></li>
+				          <li><a href="#gallery" data-i18n="nav.gallery">Gallery</a></li>
+				          <li><a href="#visit" data-i18n="nav.visit">Visit Us</a></li>
 				        </ul>
 				      </nav><!-- #nav-menu-container -->
+		      <button id="lang-toggle" class="lang-toggle-btn" aria-label="Switch to Arabic" type="button">
+		        <span class="lang-opt lang-en lang-active">EN</span>
+		        <span class="lang-sep">|</span>
+		        <span class="lang-opt lang-ar">العربية</span>
+		      </button>
 			    	</div>
 			    </div>
 			  </header><!-- #header -->
@@ -73,9 +79,9 @@
 				<div class="container">
 					<div class="row fullscreen d-flex align-items-center justify-content-start">
 						<div class="banner-content col-lg-7">
-							<h5>Rabieh • Amman</h5>
+							<h5 data-i18n="hero.location">Rabieh • Amman</h5>
 							<h1 class="ocho-hero-title">
-								<span id="ocho-hero-typed" class="ocho-typed-text" data-text="OCHO Coffee House"></span>
+								<span id="ocho-hero-typed" class="ocho-typed-text" data-i18n-typed data-text="OCHO Coffee House"></span>
 								<span class="ocho-typed-cursor">|</span>
 							</h1>
 						</div>										
@@ -93,11 +99,11 @@
 							<a class="play-btn" href="https://www.instagram.com/ochocoffeehouse/" target="_blank" rel="noopener"><img class="img-fluid" src="img/play-icon.png" alt=""></a>
 						</div>						
 						<div class="col-lg-6 video-left">
-							<h6>ABOUT US</h6>
-							<h1>A Corner Where You Belong</h1>
-							<p><span>Specialty coffee, warm light, and slow moments in the heart of Amman.</span></p>
+							<h6 data-i18n="about.label">ABOUT US</h6>
+							<h1 data-i18n="about.title">A Corner Where You Belong</h1>
+							<p><span data-i18n="about.tagline">Specialty coffee, warm light, and slow moments in the heart of Amman.</span></p>
 							<p>
-								Ocho Coffee House in Rabieh is a cozy café made for morning rituals, afternoon catchups, and late-night conversations that linger.
+								<span data-i18n="about.desc">Ocho Coffee House in Rabieh is a cozy café made for morning rituals, afternoon catchups, and late-night conversations that linger.</span>
 							</p>
 							<img class="img-fluid" src="img/signature.png" alt="">
 						</div>
@@ -112,8 +118,8 @@
 					<div class="row d-flex justify-content-center">
 						<div class="menu-content pb-60 col-lg-10">
 							<div class="title text-center">
-								<h1 class="mb-10">Our Ocho Favorites</h1>
-								<p>Crafted for slow mornings and meaningful catchups.</p>
+								<h1 class="mb-10" data-i18n="menu.title">Our Ocho Favorites</h1>
+								<p data-i18n="menu.subtitle">Crafted for slow mornings and meaningful catchups.</p>
 							</div>
 						</div>
 					</div>						
@@ -121,118 +127,100 @@
 						<div class="col-lg-4">
 							<div class="single-menu">
 								<div class="title-div justify-content-between d-flex">
-									<h4>Cappuccino</h4>
+									<h4 data-i18n="menu.cappuccino.name">Cappuccino</h4>
 									<p class="price float-right">
 										$49
 									</p>
 								</div>
-								<p>
-									Usage of the Internet is becoming more common due to rapid advance.
-								</p>								
+								<p data-i18n="menu.cappuccino.desc">Velvety espresso with equal parts steamed milk and silky foam — a timeless classic.</p>								
 							</div>
 						</div>
 						<div class="col-lg-4">
 							<div class="single-menu">
 								<div class="title-div justify-content-between d-flex">
-									<h4>Americano</h4>
+									<h4 data-i18n="menu.americano.name">Americano</h4>
 									<p class="price float-right">
 										$49
 									</p>
 								</div>
-								<p>
-									Usage of the Internet is becoming more common due to rapid advance.
-								</p>								
+								<p data-i18n="menu.americano.desc">Rich espresso shots diluted with hot water for a smooth, bold cup.</p>								
 							</div>
 						</div>
 						<div class="col-lg-4">
 							<div class="single-menu">
 								<div class="title-div justify-content-between d-flex">
-									<h4>Espresso</h4>
+									<h4 data-i18n="menu.espresso.name">Espresso</h4>
 									<p class="price float-right">
 										$49
 									</p>
 								</div>
-								<p>
-									Usage of the Internet is becoming more common due to rapid advance.
-								</p>								
+								<p data-i18n="menu.espresso.desc">A concentrated shot of pure coffee, intense and full of character.</p>								
 							</div>
 						</div>	
 						<div class="col-lg-4">
 							<div class="single-menu">
 								<div class="title-div justify-content-between d-flex">
-									<h4>Macchiato</h4>
+									<h4 data-i18n="menu.macchiato.name">Macchiato</h4>
 									<p class="price float-right">
 										$49
 									</p>
 								</div>
-								<p>
-									Usage of the Internet is becoming more common due to rapid advance.
-								</p>								
+								<p data-i18n="menu.macchiato.desc">Espresso marked with a touch of foamed milk — bold and beautifully balanced.</p>								
 							</div>
 						</div>
 						<div class="col-lg-4">
 							<div class="single-menu">
 								<div class="title-div justify-content-between d-flex">
-									<h4>Mocha</h4>
+									<h4 data-i18n="menu.mocha.name">Mocha</h4>
 									<p class="price float-right">
 										$49
 									</p>
 								</div>
-								<p>
-									Usage of the Internet is becoming more common due to rapid advance.
-								</p>								
+								<p data-i18n="menu.mocha.desc">Espresso blended with chocolate and steamed milk — sweet and indulgent.</p>								
 							</div>
 						</div>
 						<div class="col-lg-4">
 							<div class="single-menu">
 								<div class="title-div justify-content-between d-flex">
-									<h4>Coffee Latte</h4>
+									<h4 data-i18n="menu.latte.name">Coffee Latte</h4>
 									<p class="price float-right">
 										$49
 									</p>
 								</div>
-								<p>
-									Usage of the Internet is becoming more common due to rapid advance.
-								</p>								
+								<p data-i18n="menu.latte.desc">Smooth espresso with generous steamed milk and a light cloud of foam.</p>								
 							</div>
 						</div>
 						<div class="col-lg-4">
 							<div class="single-menu">
 								<div class="title-div justify-content-between d-flex">
-									<h4>Piccolo Latte</h4>
+									<h4 data-i18n="menu.piccolo.name">Piccolo Latte</h4>
 									<p class="price float-right">
 										$49
 									</p>
 								</div>
-								<p>
-									Usage of the Internet is becoming more common due to rapid advance.
-								</p>								
+								<p data-i18n="menu.piccolo.desc">A small but intense latte — full espresso character with a hint of milk.</p>								
 							</div>
 						</div>
 						<div class="col-lg-4">
 							<div class="single-menu">
 								<div class="title-div justify-content-between d-flex">
-									<h4>Ristretto</h4>
+									<h4 data-i18n="menu.ristretto.name">Ristretto</h4>
 									<p class="price float-right">
 										$49
 									</p>
 								</div>
-								<p>
-									Usage of the Internet is becoming more common due to rapid advance.
-								</p>								
+								<p data-i18n="menu.ristretto.desc">A shorter, sweeter espresso pull with layered depth and complexity.</p>								
 							</div>
 						</div>
 						<div class="col-lg-4">
 							<div class="single-menu">
 								<div class="title-div justify-content-between d-flex">
-									<h4>Affogato</h4>
+									<h4 data-i18n="menu.affogato.name">Affogato</h4>
 									<p class="price float-right">
 										$49
 									</p>
 								</div>
-								<p>
-									Usage of the Internet is becoming more common due to rapid advance.
-								</p>								
+								<p data-i18n="menu.affogato.desc">A scoop of vanilla ice cream drowned in a hot shot of espresso.</p>								
 							</div>
 						</div>															
 					</div>
@@ -246,8 +234,8 @@
 					<div class="row d-flex justify-content-center">
 						<div class="menu-content pb-60 col-lg-10">
 							<div class="title text-center">
-								<h1 class="mb-10">A Glimpse of Ocho</h1>
-								<p>Warm corners, calm moments, and specialty brews.</p>
+								<h1 class="mb-10" data-i18n="gallery.title">A Glimpse of Ocho</h1>
+								<p data-i18n="gallery.subtitle">Warm corners, calm moments, and specialty brews.</p>
 							</div>
 						</div>
 					</div>						
@@ -255,23 +243,23 @@
 						<div class="ocho-gallery-track">
 							<a href="img/Ohco 2.jpg" class="img-pop-home ocho-gallery-card">
 								<img class="img-fluid" src="img/Ohco 2.jpg" alt="Ocho Coffee House gallery image">
-								<span>Freshly Brewed</span>
+								<span data-i18n="gallery.cap1">Freshly Brewed</span>
 							</a>
 							<a href="img/Ocho 3.jpg" class="img-pop-home ocho-gallery-card">
 								<img class="img-fluid" src="img/Ocho 3.jpg" alt="Ocho Coffee House gallery image">
-								<span>Cozy Gatherings</span>
+								<span data-i18n="gallery.cap2">Cozy Gatherings</span>
 							</a>
 							<a href="img/ocho 5.webp" class="img-pop-home ocho-gallery-card">
 								<img class="img-fluid" src="img/ocho 5.webp" alt="Ocho Coffee House gallery image">
-								<span>Signature Moments</span>
+								<span data-i18n="gallery.cap3">Signature Moments</span>
 							</a>
 							<a href="img/ocho 6.webp" class="img-pop-home ocho-gallery-card">
 								<img class="img-fluid" src="img/ocho 6.webp" alt="Ocho Coffee House gallery image">
-								<span>Sweet Breaks</span>
+								<span data-i18n="gallery.cap4">Sweet Breaks</span>
 							</a>
 							<a href="img/Ocho 4 refit.JPG" class="img-pop-home ocho-gallery-card">
 								<img class="img-fluid" src="img/Ocho 4 refit.JPG" alt="Ocho Coffee House gallery image">
-								<span>Rabieh Vibes</span>
+								<span data-i18n="gallery.cap5">Rabieh Vibes</span>
 							</a>
 						</div>
 					</div>
@@ -285,15 +273,15 @@
 					<div class="row d-flex justify-content-center">
 						<div class="menu-content pb-60 col-lg-10">
 							<div class="title text-center">
-								<h1 class="mb-10">Loved by Our Guests</h1>
-								<p>A neighborhood café where moments stay.</p>
+								<h1 class="mb-10" data-i18n="reviews.title">Loved by Our Guests</h1>
+								<p data-i18n="reviews.subtitle">A neighborhood café where moments stay.</p>
 							</div>
 						</div>
 					</div>						
 					<div class="row">
 						<div class="col-lg-6 col-md-6 single-review">
 							<div class="title d-flex flex-row">
-								<h4>Samar Bitar</h4>
+								<h4 data-i18n="reviews.r1.author">Samar Bitar</h4>
 								<div class="star">
 									<span class="fa fa-star checked"></span>
 									<span class="fa fa-star checked"></span>
@@ -303,12 +291,12 @@
 								</div>
 							</div>
 							<p>
-								Cozy atmosphere, friendly staff, and affordable prices. I love this space, its drinks, and its sense of community. If you want to socialise or work a calm place that feels welcoming and warm, OCHO is perfect.
+								<span data-i18n="reviews.r1.text">Cozy atmosphere, friendly staff, and affordable prices. I love this space, its drinks, and its sense of community. If you want to socialise or work in a calm place that feels welcoming and warm, OCHO is perfect.</span>
 							</p>
 						</div>	
 						<div class="col-lg-6 col-md-6 single-review">
 							<div class="title d-flex flex-row">
-								<h4>Sakha' AlZaatreh</h4>
+								<h4 data-i18n="reviews.r2.author">Sakha&#8217; AlZaatreh</h4>
 								<div class="star">
 									<span class="fa fa-star checked"></span>
 									<span class="fa fa-star checked"></span>
@@ -318,26 +306,26 @@
 								</div>
 							</div>
 							<p>
-								Perfect for small events, casual gatherings, working, or just enjoying a good cup of coffee.
+								<span data-i18n="reviews.r2.text">Perfect for small events, casual gatherings, working, or just enjoying a good cup of coffee.</span>
 							</p>
 						</div>	
 					</div>
 					<div class="row counter-row">
 						<div class="col-lg-3 col-md-6 single-counter ocho-stat">
 							<h1><span class="ocho-stat-number" data-target="1000" data-display="1K+">0</span></h1>
-							<p>Guests</p>
+							<p data-i18n="stats.guests">Guests</p>
 						</div>
 						<div class="col-lg-3 col-md-6 single-counter ocho-stat">
 							<h1><span class="ocho-stat-number" data-target="10000" data-display="10K+">0</span></h1>
-							<p>Cups</p>
+							<p data-i18n="stats.cups">Cups</p>
 						</div>
 						<div class="col-lg-3 col-md-6 single-counter ocho-stat">
 							<h1><span class="ocho-stat-number" data-target="2000" data-display="2K+">0</span></h1>
-							<p>Baked Sweets</p>
+							<p data-i18n="stats.sweets">Baked Sweets</p>
 						</div>
 						<div class="col-lg-3 col-md-6 single-counter ocho-stat">
 							<h1><span class="ocho-stat-number" data-target="1000000" data-display="1M+">0</span></h1>
-							<p>Smiles</p>
+							<p data-i18n="stats.smiles">Smiles</p>
 						</div>
 					</div>
 				</div>	
@@ -352,19 +340,19 @@
 						<div class="col-lg-5 col-md-6 col-sm-6">
 							<div class="single-footer-widget">
 								<h6>Ocho Coffee House</h6>
-								<p>where moments stay</p>
-								<p>Rabieh, Amman, Jordan</p>
+								<p data-i18n="footer.tagline">where moments stay</p>
+								<p data-i18n="footer.location">Rabieh, Amman, Jordan</p>
 							</div>
 						</div>
 						<div class="col-lg-5  col-md-6 col-sm-6">
 							<div class="single-footer-widget">
-								<h6>Opening Hours</h6>
-								<p>Daily 8AM–12AM | Fri 2:30PM–12AM</p>
+								<h6 data-i18n="footer.hours.title">Opening Hours</h6>
+								<p><span data-i18n="footer.hours.text">Daily 8AM–12AM | Fri 2:30PM–12AM</span></p>
 							</div>
 						</div>						
 						<div class="col-lg-2 col-md-6 col-sm-6 social-widget">
 							<div class="single-footer-widget">
-								<h6>Instagram</h6>
+								<h6 data-i18n="footer.social.title">Instagram</h6>
 								<p><a href="https://www.instagram.com/ochocoffeehouse/" target="_blank">@ochocoffeehouse</a></p>
 								<div class="footer-social d-flex align-items-center">
 									<a href="https://www.instagram.com/ochocoffeehouse/" target="_blank"><i class="fa fa-instagram"></i></a>
@@ -381,7 +369,8 @@
 			<script src="js/easing.min.js"></script>
 			<script src="js/jquery.magnific-popup.min.js"></script>
 			<script src="js/ocho-effects.js"></script>
-			<script src="js/main.js"></script>	
+			<script src="js/main.js"></script>
+			<script src="js/i18n.js"></script>	
 		</body>
 	</html>
 

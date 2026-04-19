@@ -136,10 +136,19 @@
     });
   }
 
+  var _typingTimer = null;
+
   function initHeroTyping() {
     var typedEl = document.getElementById('ocho-hero-typed');
     if (!typedEl) return;
 
+    // Cancel any in-flight timer from a previous call
+    if (_typingTimer !== null) {
+      clearTimeout(_typingTimer);
+      _typingTimer = null;
+    }
+
+    // Always read the attribute fresh so language switches take effect
     var text = typedEl.getAttribute('data-text') || 'OCHO Coffee House';
     var index = 0;
     var isDeleting = false;
@@ -151,22 +160,22 @@
 
         if (index >= text.length) {
           isDeleting = true;
-          window.setTimeout(tick, 1800);
+          _typingTimer = window.setTimeout(tick, 2800);
           return;
         }
 
-        window.setTimeout(tick, 70);
+        _typingTimer = window.setTimeout(tick, 140);
       } else {
         index -= 1;
         typedEl.textContent = text.slice(0, index);
 
         if (index <= 0) {
           isDeleting = false;
-          window.setTimeout(tick, 400);
+          _typingTimer = window.setTimeout(tick, 600);
           return;
         }
 
-        window.setTimeout(tick, 35);
+        _typingTimer = window.setTimeout(tick, 70);
       }
     }
 
@@ -178,4 +187,13 @@
     initOchoCounters();
     initHeroTyping();
   });
+
+  // Exposed so i18n.js can restart typing after a language switch
+  window.ochoRestartTyping = function () {
+    var el = document.getElementById('ocho-hero-typed');
+    if (el) {
+      el.textContent = '';
+    }
+    initHeroTyping();
+  };
 })();
