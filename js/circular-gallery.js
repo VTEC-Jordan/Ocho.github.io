@@ -9,7 +9,9 @@ let Transform;
 async function loadOGL() {
   const sources = [
     '../node_modules/ogl/src/index.js',
-    'https://esm.sh/ogl@1.0.11'
+    'https://cdn.jsdelivr.net/npm/ogl@1.0.11/src/index.js',
+    'https://unpkg.com/ogl@1.0.11/src/index.js',
+    'https://esm.sh/ogl@1.0.11?bundle'
   ];
 
   for (const source of sources) {
@@ -33,6 +35,49 @@ async function loadOGL() {
   }
 
   return false;
+}
+
+function markHeroFallback(hero, reason, error) {
+  if (!hero) return;
+  hero.setAttribute('data-hero-fallback', reason || 'unknown');
+  if (error) {
+    hero.setAttribute('data-hero-error', String(error && error.message ? error.message : error).slice(0, 180));
+  } else {
+    hero.removeAttribute('data-hero-error');
+  }
+}
+
+function canUseWebGL() {
+  try {
+    const canvas = document.createElement('canvas');
+    const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+    return !!gl;
+  } catch (error) {
+    return false;
+  }
+}
+
+function waitForContainerReady(container, timeoutMs = 3000) {
+  const start = performance.now();
+  return new Promise((resolve) => {
+    function check() {
+      if (!container || !container.isConnected) {
+        resolve(false);
+        return;
+      }
+      const hasSize = container.clientWidth > 0 && container.clientHeight > 0;
+      if (hasSize) {
+        resolve(true);
+        return;
+      }
+      if (performance.now() - start >= timeoutMs) {
+        resolve(false);
+        return;
+      }
+      requestAnimationFrame(check);
+    }
+    check();
+  });
 }
 
 function debounce(func, wait) {
@@ -490,10 +535,29 @@ class App {
 
   const isSmallScreen = window.matchMedia('(max-width: 900px)').matches;
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (isSmallScreen || prefersReducedMotion) return;
+  if (isSmallScreen) {
+    markHeroFallback(hero, 'small-screen');
+    return;
+  }
+  if (prefersReducedMotion) {
+    markHeroFallback(hero, 'reduced-motion');
+    return;
+  }
+
+  if (!canUseWebGL()) {
+    markHeroFallback(hero, 'no-webgl');
+    return;
+  }
+
+  const ready = await waitForContainerReady(container);
+  if (!ready) {
+    markHeroFallback(hero, 'container-not-ready');
+    return;
+  }
 
   const loaded = await loadOGL();
   if (!loaded) {
+    markHeroFallback(hero, 'ogl-load-failed');
     console.warn('Circular gallery disabled: OGL dependency could not be loaded.');
     return;
   }
@@ -509,8 +573,19 @@ class App {
     });
 
     hero.classList.add('is-gallery-ready');
+    hero.removeAttribute('data-hero-fallback');
+    hero.removeAttribute('data-hero-error');
     window.addEventListener('beforeunload', () => app.destroy(), { once: true });
+
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        app.scroll.ease = 0.06;
+      } else {
+        app.scroll.ease = 0.02;
+      }
+    });
   } catch (error) {
+    markHeroFallback(hero, 'app-init-failed', error);
     console.warn('Circular gallery fallback activated:', error);
   }
 })();

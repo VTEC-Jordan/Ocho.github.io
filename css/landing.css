@@ -1339,7 +1339,7 @@ html[dir="rtl"] .review-item footer {
 }
 
 html[dir="rtl"] .drinks-cols {
-  direction: rtl;
+  direction: ltr;
 }
 
 html[dir="rtl"] .field label,
@@ -1364,15 +1364,15 @@ html[dir="rtl"] .menu-tab {
 }
 
 html[dir="rtl"] .menu-stack-head {
-  grid-template-columns: auto 1fr;
+  grid-template-columns: 1fr auto;
 }
 
 html[dir="rtl"] .menu-stack-head > :first-child {
-  order: 2;
+  order: 1;
 }
 
 html[dir="rtl"] .menu-stack-head > :last-child {
-  order: 1;
+  order: 2;
 }
 
 html[dir="rtl"] .drinks-actions,
