@@ -1,378 +1,443 @@
-﻿	<!DOCTYPE html>
-	<html lang="en" class="no-js">
-	<head>
-		<!-- Mobile Specific Meta -->
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<!-- Favicon-->
-		<link rel="shortcut icon" href="img/fav.png">
-		<!-- Author Meta -->
-		<meta name="author" content="codepixer">
-		<!-- Meta Description -->
-		<meta name="description" content="">
-		<!-- Meta Keyword -->
-		<meta name="keywords" content="">
-		<!-- meta character set -->
-		<meta charset="UTF-8">
-		<!-- Site Title -->
-		<title>Ocho Coffee House</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ocho Coffee House in Rabieh, Amman. A neighborhood coffee house and open community space for work, conversation, games, and small events.">
+  <meta name="keywords" content="Ocho Coffee House, Rabieh, Amman, coffee, community space, event booking">
+  <title>Ocho Coffee House | Pull Up a Chair. Stay a While.</title>
+  <link rel="shortcut icon" href="img/fav.png">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/landing.css">
+</head>
+<body>
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="brand" href="#hero" aria-label="Go to top">
+        <img src="img/OchoLogo.png" alt="Ocho Coffee House logo" onerror="this.src='img/ocho logo.jpg'">
+      </a>
 
-		<link href="//fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500&family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
-			<!--
-			CSS
-			============================================= -->
-			<link rel="stylesheet" href="css/linearicons.css">
-			<link rel="stylesheet" href="css/font-awesome.min.css">
-			<link rel="stylesheet" href="css/bootstrap.css">
-			<link rel="stylesheet" href="css/magnific-popup.css">
-			<link rel="stylesheet" href="css/owl.carousel.css">
-			<link rel="stylesheet" href="css/main.css">
-			<link rel="stylesheet" href="css/rtl.css">
-		</head>
-		<body>
+      <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
-			  <header id="header">
-				<div class="header-top">
-		  			<div class="container">
-				  		<div class="row justify-content-end">
-				  			<div class="col-lg-8 col-sm-4 col-8 header-top-right no-padding">
-				  				<ul>
-				  					<li>
-				  						<span data-i18n="header.daily">Daily: 8AM–12AM</span>
-				  					</li>
-				  					<li>
-				  						<span data-i18n="header.fri">Fri: 2:30PM–12AM</span>
-				  					</li>
-				  					<li>
-				  						<a href="https://www.instagram.com/ochocoffeehouse/" target="_blank">@ochocoffeehouse</a>
-				  					</li>
-				  				</ul>
-				  			</div>
-				  		</div>
-		  			</div>
-				</div>
-			    <div class="container">
-			    	<div class="row align-items-center justify-content-between d-flex">
-				      <div id="logo">
-				        <a href="index.html"><img src="img/ocho logo.jpg" alt="Ocho Coffee House" style="max-height:50px; width:auto;" onerror="this.src='img/logo.png'"></a>
-				      </div>
-				      <nav id="nav-menu-container">
-				        <ul class="nav-menu">
-				          <li class="menu-active"><a href="#home" data-i18n="nav.home">Home</a></li>
-				          <li><a href="#about" data-i18n="nav.about">About</a></li>
-				          <li><a href="#coffee" data-i18n="nav.menu">Menu</a></li>
-				          <li><a href="#gallery" data-i18n="nav.gallery">Gallery</a></li>
-				          <li><a href="#visit" data-i18n="nav.visit">Visit Us</a></li>
-				        </ul>
-				      </nav><!-- #nav-menu-container -->
-		      <button id="lang-toggle" class="lang-toggle-btn" aria-label="Switch to Arabic" type="button">
-		        <span class="lang-opt lang-en lang-active">EN</span>
-		        <span class="lang-sep">|</span>
-		        <span class="lang-opt lang-ar">العربية</span>
-		      </button>
-			    	</div>
-			    </div>
-			  </header><!-- #header -->
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <a href="#hero">Hero</a>
+        <a href="#about">About Us</a>
+        <a href="#menu">Menu</a>
+        <a href="#community">Community</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#form">Form</a>
+      </nav>
 
+      <a class="cta cta-nav" href="#form">Book Your Event</a>
+    </div>
+  </header>
 
-			<!-- start banner Area -->
-			<section class="banner-area" id="home">	
-				<div class="container">
-					<div class="row fullscreen d-flex align-items-center justify-content-start">
-						<div class="banner-content col-lg-7">
-							<h5 data-i18n="hero.location">Rabieh • Amman</h5>
-							<h1 class="ocho-hero-title">
-								<span id="ocho-hero-typed" class="ocho-typed-text" data-i18n-typed data-text="OCHO Coffee House"></span>
-								<span class="ocho-typed-cursor">|</span>
-							</h1>
-						</div>										
-					</div>
-				</div>
-			</section>
-			<!-- End banner Area -->	
+  <main>
+    <section class="hero" id="hero" aria-labelledby="hero-title">
+      <div class="hero-gallery-wrap" aria-hidden="true">
+        <div class="hero-fallback"></div>
+        <div class="circular-gallery" id="circular-gallery"></div>
+      </div>
+      <div class="hero-overlay"></div>
+      <div class="container hero-content">
+        <p class="eyebrow">Rabieh, Amman</p>
+        <h1 id="hero-title">Ocho Coffee House</h1>
+        <p class="hero-lead">Pull up a chair. Stay a while. Your place to land.</p>
+        <p class="hero-copy">
+          Ocho is a neighborhood coffee house and community space built for work, conversation, games, and slow afternoons.
+          Come alone, bring a friend, or settle in with your laptop. There is a seat for you here.
+        </p>
+        <a class="cta hero-mobile-cta" href="#form">Book Your Event</a>
+      </div>
+    </section>
 
-			<!-- Start video-sec Area -->
-			<section class="video-sec-area pb-100 pt-40" id="about">
-				<div class="container">
-					<div class="row justify-content-start align-items-center">
-						<div class="col-lg-6 video-right justify-content-center align-items-center d-flex">
-							<div class="overlay overlay-bg"></div>
-							<a class="play-btn" href="https://www.instagram.com/ochocoffeehouse/" target="_blank" rel="noopener"><img class="img-fluid" src="img/play-icon.png" alt=""></a>
-						</div>						
-						<div class="col-lg-6 video-left">
-							<h6 data-i18n="about.label">ABOUT US</h6>
-							<h1 data-i18n="about.title">A Corner Where You Belong</h1>
-							<p><span data-i18n="about.tagline">Specialty coffee, warm light, and slow moments in the heart of Amman.</span></p>
-							<p>
-								<span data-i18n="about.desc">Ocho Coffee House in Rabieh is a cozy café made for morning rituals, afternoon catchups, and late-night conversations that linger.</span>
-							</p>
-							<img class="img-fluid" src="img/signature.png" alt="">
-						</div>
-					</div>
-				</div>	
-			</section>
-			<!-- End video-sec Area -->
-			
-			<!-- Start menu Area -->
-			<section class="menu-area section-gap" id="coffee">
-				<div class="container">
-					<div class="row d-flex justify-content-center">
-						<div class="menu-content pb-60 col-lg-10">
-							<div class="title text-center">
-								<h1 class="mb-10" data-i18n="menu.title">Our Ocho Favorites</h1>
-								<p data-i18n="menu.subtitle">Crafted for slow mornings and meaningful catchups.</p>
-							</div>
-						</div>
-					</div>						
-					<div class="row">
-						<div class="col-lg-4">
-							<div class="single-menu">
-								<div class="title-div justify-content-between d-flex">
-									<h4 data-i18n="menu.cappuccino.name">Cappuccino</h4>
-									<p class="price float-right">
-										$49
-									</p>
-								</div>
-								<p data-i18n="menu.cappuccino.desc">Velvety espresso with equal parts steamed milk and silky foam — a timeless classic.</p>								
-							</div>
-						</div>
-						<div class="col-lg-4">
-							<div class="single-menu">
-								<div class="title-div justify-content-between d-flex">
-									<h4 data-i18n="menu.americano.name">Americano</h4>
-									<p class="price float-right">
-										$49
-									</p>
-								</div>
-								<p data-i18n="menu.americano.desc">Rich espresso shots diluted with hot water for a smooth, bold cup.</p>								
-							</div>
-						</div>
-						<div class="col-lg-4">
-							<div class="single-menu">
-								<div class="title-div justify-content-between d-flex">
-									<h4 data-i18n="menu.espresso.name">Espresso</h4>
-									<p class="price float-right">
-										$49
-									</p>
-								</div>
-								<p data-i18n="menu.espresso.desc">A concentrated shot of pure coffee, intense and full of character.</p>								
-							</div>
-						</div>	
-						<div class="col-lg-4">
-							<div class="single-menu">
-								<div class="title-div justify-content-between d-flex">
-									<h4 data-i18n="menu.macchiato.name">Macchiato</h4>
-									<p class="price float-right">
-										$49
-									</p>
-								</div>
-								<p data-i18n="menu.macchiato.desc">Espresso marked with a touch of foamed milk — bold and beautifully balanced.</p>								
-							</div>
-						</div>
-						<div class="col-lg-4">
-							<div class="single-menu">
-								<div class="title-div justify-content-between d-flex">
-									<h4 data-i18n="menu.mocha.name">Mocha</h4>
-									<p class="price float-right">
-										$49
-									</p>
-								</div>
-								<p data-i18n="menu.mocha.desc">Espresso blended with chocolate and steamed milk — sweet and indulgent.</p>								
-							</div>
-						</div>
-						<div class="col-lg-4">
-							<div class="single-menu">
-								<div class="title-div justify-content-between d-flex">
-									<h4 data-i18n="menu.latte.name">Coffee Latte</h4>
-									<p class="price float-right">
-										$49
-									</p>
-								</div>
-								<p data-i18n="menu.latte.desc">Smooth espresso with generous steamed milk and a light cloud of foam.</p>								
-							</div>
-						</div>
-						<div class="col-lg-4">
-							<div class="single-menu">
-								<div class="title-div justify-content-between d-flex">
-									<h4 data-i18n="menu.piccolo.name">Piccolo Latte</h4>
-									<p class="price float-right">
-										$49
-									</p>
-								</div>
-								<p data-i18n="menu.piccolo.desc">A small but intense latte — full espresso character with a hint of milk.</p>								
-							</div>
-						</div>
-						<div class="col-lg-4">
-							<div class="single-menu">
-								<div class="title-div justify-content-between d-flex">
-									<h4 data-i18n="menu.ristretto.name">Ristretto</h4>
-									<p class="price float-right">
-										$49
-									</p>
-								</div>
-								<p data-i18n="menu.ristretto.desc">A shorter, sweeter espresso pull with layered depth and complexity.</p>								
-							</div>
-						</div>
-						<div class="col-lg-4">
-							<div class="single-menu">
-								<div class="title-div justify-content-between d-flex">
-									<h4 data-i18n="menu.affogato.name">Affogato</h4>
-									<p class="price float-right">
-										$49
-									</p>
-								</div>
-								<p data-i18n="menu.affogato.desc">A scoop of vanilla ice cream drowned in a hot shot of espresso.</p>								
-							</div>
-						</div>															
-					</div>
-				</div>	
-			</section>
-			<!-- End menu Area -->
-			
-			<!-- Start gallery Area -->
-			<section class="gallery-area section-gap" id="gallery">
-				<div class="container">
-					<div class="row d-flex justify-content-center">
-						<div class="menu-content pb-60 col-lg-10">
-							<div class="title text-center">
-								<h1 class="mb-10" data-i18n="gallery.title">A Glimpse of Ocho</h1>
-								<p data-i18n="gallery.subtitle">Warm corners, calm moments, and specialty brews.</p>
-							</div>
-						</div>
-					</div>						
-					<div class="ocho-gallery-wrap">
-						<div class="ocho-gallery-track">
-							<a href="img/Ohco 2.jpg" class="img-pop-home ocho-gallery-card">
-								<img class="img-fluid" src="img/Ohco 2.jpg" alt="Ocho Coffee House gallery image">
-								<span data-i18n="gallery.cap1">Freshly Brewed</span>
-							</a>
-							<a href="img/Ocho 3.jpg" class="img-pop-home ocho-gallery-card">
-								<img class="img-fluid" src="img/Ocho 3.jpg" alt="Ocho Coffee House gallery image">
-								<span data-i18n="gallery.cap2">Cozy Gatherings</span>
-							</a>
-							<a href="img/ocho 5.webp" class="img-pop-home ocho-gallery-card">
-								<img class="img-fluid" src="img/ocho 5.webp" alt="Ocho Coffee House gallery image">
-								<span data-i18n="gallery.cap3">Signature Moments</span>
-							</a>
-							<a href="img/ocho 6.webp" class="img-pop-home ocho-gallery-card">
-								<img class="img-fluid" src="img/ocho 6.webp" alt="Ocho Coffee House gallery image">
-								<span data-i18n="gallery.cap4">Sweet Breaks</span>
-							</a>
-							<a href="img/Ocho 4 refit.JPG" class="img-pop-home ocho-gallery-card">
-								<img class="img-fluid" src="img/Ocho 4 refit.JPG" alt="Ocho Coffee House gallery image">
-								<span data-i18n="gallery.cap5">Rabieh Vibes</span>
-							</a>
-						</div>
-					</div>
-				</div>	
-			</section>
-			<!-- End gallery Area -->
-			
-			<!-- Start review Area -->
-			<section class="review-area section-gap" id="review">
-				<div class="container">
-					<div class="row d-flex justify-content-center">
-						<div class="menu-content pb-60 col-lg-10">
-							<div class="title text-center">
-								<h1 class="mb-10" data-i18n="reviews.title">Loved by Our Guests</h1>
-								<p data-i18n="reviews.subtitle">A neighborhood café where moments stay.</p>
-							</div>
-						</div>
-					</div>						
-					<div class="row">
-						<div class="col-lg-6 col-md-6 single-review">
-							<div class="title d-flex flex-row">
-								<h4 data-i18n="reviews.r1.author">Samar Bitar</h4>
-								<div class="star">
-									<span class="fa fa-star checked"></span>
-									<span class="fa fa-star checked"></span>
-									<span class="fa fa-star checked"></span>
-									<span class="fa fa-star checked"></span>
-									<span class="fa fa-star checked"></span>
-								</div>
-							</div>
-							<p>
-								<span data-i18n="reviews.r1.text">Cozy atmosphere, friendly staff, and affordable prices. I love this space, its drinks, and its sense of community. If you want to socialise or work in a calm place that feels welcoming and warm, OCHO is perfect.</span>
-							</p>
-						</div>	
-						<div class="col-lg-6 col-md-6 single-review">
-							<div class="title d-flex flex-row">
-								<h4 data-i18n="reviews.r2.author">Sakha&#8217; AlZaatreh</h4>
-								<div class="star">
-									<span class="fa fa-star checked"></span>
-									<span class="fa fa-star checked"></span>
-									<span class="fa fa-star checked"></span>
-									<span class="fa fa-star checked"></span>
-									<span class="fa fa-star checked"></span>
-								</div>
-							</div>
-							<p>
-								<span data-i18n="reviews.r2.text">Perfect for small events, casual gatherings, working, or just enjoying a good cup of coffee.</span>
-							</p>
-						</div>	
-					</div>
-					<div class="row counter-row">
-						<div class="col-lg-3 col-md-6 single-counter ocho-stat">
-							<h1><span class="ocho-stat-number" data-target="1000" data-display="1K+">0</span></h1>
-							<p data-i18n="stats.guests">Guests</p>
-						</div>
-						<div class="col-lg-3 col-md-6 single-counter ocho-stat">
-							<h1><span class="ocho-stat-number" data-target="10000" data-display="10K+">0</span></h1>
-							<p data-i18n="stats.cups">Cups</p>
-						</div>
-						<div class="col-lg-3 col-md-6 single-counter ocho-stat">
-							<h1><span class="ocho-stat-number" data-target="2000" data-display="2K+">0</span></h1>
-							<p data-i18n="stats.sweets">Baked Sweets</p>
-						</div>
-						<div class="col-lg-3 col-md-6 single-counter ocho-stat">
-							<h1><span class="ocho-stat-number" data-target="1000000" data-display="1M+">0</span></h1>
-							<p data-i18n="stats.smiles">Smiles</p>
-						</div>
-					</div>
-				</div>	
-			</section>
-			<!-- End review Area -->
-			
+    <section class="section about" id="about" aria-labelledby="about-title">
+      <div class="container two-col">
+        <div>
+          <p class="eyebrow">The Story of Ocho</p>
+          <h2 id="about-title">Built by Two Friends, Open to Everyone</h2>
+          <p>
+            Ocho began in August 2025, when two friends turned a long-held dream into a place they wanted to exist in their own neighborhood.
+            The idea was simple: create a coffee house that feels warm, open, and easy to spend time in.
+          </p>
+          <p>
+            We chose the name Ocho because 8, turned on its side, becomes infinity. For us, it reflects the feeling we wanted the space to have:
+            where time slows down, conversations flow, and people feel at home.
+          </p>
+        </div>
+        <figure class="media-card">
+          <img src="img/IMG_8204.jpg" alt="Guests enjoying Ocho Coffee House" loading="lazy" decoding="async">
+        </figure>
+      </div>
+    </section>
 
-			<!-- start footer Area -->		
-			<footer class="footer-area section-gap" id="visit">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-5 col-md-6 col-sm-6">
-							<div class="single-footer-widget">
-								<h6>Ocho Coffee House</h6>
-								<p data-i18n="footer.tagline">where moments stay</p>
-								<p data-i18n="footer.location">Rabieh, Amman, Jordan</p>
-							</div>
-						</div>
-						<div class="col-lg-5  col-md-6 col-sm-6">
-							<div class="single-footer-widget">
-								<h6 data-i18n="footer.hours.title">Opening Hours</h6>
-								<p><span data-i18n="footer.hours.text">Daily 8AM–12AM | Fri 2:30PM–12AM</span></p>
-							</div>
-						</div>						
-						<div class="col-lg-2 col-md-6 col-sm-6 social-widget">
-							<div class="single-footer-widget">
-								<h6 data-i18n="footer.social.title">Instagram</h6>
-								<p><a href="https://www.instagram.com/ochocoffeehouse/" target="_blank">@ochocoffeehouse</a></p>
-								<div class="footer-social d-flex align-items-center">
-									<a href="https://www.instagram.com/ochocoffeehouse/" target="_blank"><i class="fa fa-instagram"></i></a>
-								</div>
-							</div>
-						</div>							
-					</div>
-				</div>
-			</footer>	
-			<!-- End footer Area -->	
+    <section class="section menu" id="menu" aria-labelledby="menu-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Menu</p>
+          <h2 id="menu-title">Coffee Crafted for Slow Mornings</h2>
+          <p class="section-note">Current selection shown below. Share your final menu sheet and prices for a final publishing pass.</p>
+        </div>
 
-			<script src="js/vendor/jquery-2.2.4.min.js"></script>
-			<script src="js/vendor/bootstrap.min.js"></script>
-			<script src="js/easing.min.js"></script>
-			<script src="js/jquery.magnific-popup.min.js"></script>
-			<script src="js/ocho-effects.js"></script>
-			<script src="js/main.js"></script>
-			<script src="js/i18n.js"></script>	
-		</body>
-	</html>
+        <div class="menu-switch" role="tablist" aria-label="Menu sections">
+          <button class="menu-tab is-active" id="tab-drinks" type="button" role="tab" aria-selected="true" aria-controls="panel-drinks" data-menu-target="panel-drinks">Drinks</button>
+          <button class="menu-tab" id="tab-baked" type="button" role="tab" aria-selected="false" aria-controls="panel-baked" data-menu-target="panel-baked">Baked</button>
+        </div>
 
+        <div class="menu-panels">
+          <section class="menu-panel is-active" id="panel-drinks" role="tabpanel" aria-labelledby="tab-drinks">
+            <div class="drinks-switch" role="tablist" aria-label="Drinks sections">
+              <button class="drinks-tab is-active" id="drinks-tab-hot" type="button" role="tab" aria-selected="true" aria-controls="drinks-hot" data-drinks-target="drinks-hot">Hot Coffee</button>
+              <button class="drinks-tab" id="drinks-tab-cold-coffee" type="button" role="tab" aria-selected="false" aria-controls="drinks-cold-coffee" data-drinks-target="drinks-cold-coffee">Cold Coffee</button>
+              <button class="drinks-tab" id="drinks-tab-cold" type="button" role="tab" aria-selected="false" aria-controls="drinks-cold" data-drinks-target="drinks-cold">Cold Drinks</button>
+            </div>
 
+            <div class="drinks-panels">
+              <section class="drinks-panel is-active" id="drinks-hot" role="tabpanel" aria-labelledby="drinks-tab-hot">
+                <article class="drinks-card">
+                  <header class="drinks-card-head">
+                    <h3>Hot Coffee Drinks</h3>
+                    <div class="drinks-cols" aria-hidden="true"><span>R</span><span>L</span></div>
+                  </header>
+                  <ul class="drinks-list" aria-label="Hot Coffee Drinks">
+                    <li><span>American</span><span>2.5</span><span>3</span></li>
+                    <li><span>V60</span><span>3</span><span>---</span></li>
+                    <li><span>Americano</span><span>2.75</span><span>3</span></li>
+                    <li><span>Espresso</span><span>---</span><span>D/2.5</span></li>
+                    <li><span>Latte</span><span>3</span><span>3.25</span></li>
+                    <li><span>Mocha</span><span>3.25</span><span>3.75</span></li>
+                    <li><span>White Mocha</span><span>3.25</span><span>3.75</span></li>
+                    <li><span>Tea</span><span>1.75</span><span>2</span></li>
+                    <li><span>Cappuccino</span><span>3</span><span>3.25</span></li>
+                    <li><span>Spanish Latte</span><span>3.25</span><span>3.75</span></li>
+                    <li><span>Pistachio Latte</span><span>3.25</span><span>3.75</span></li>
+                    <li><span>Caramel Macchiato</span><span>3.5</span><span>4</span></li>
+                    <li><span>Hot Chocolate</span><span>---</span><span>3</span></li>
+                    <li><span>Turkish Coffee</span><span>S/2</span><span>D/2.5</span></li>
+                    <li><span>Flat White</span><span>3</span><span>---</span></li>
+                    <li><span>Cortado</span><span>3</span><span>---</span></li>
+                  </ul>
+                </article>
+              </section>
 
+              <section class="drinks-panel" id="drinks-cold-coffee" role="tabpanel" aria-labelledby="drinks-tab-cold-coffee" hidden>
+                <article class="drinks-card">
+                  <header class="drinks-card-head">
+                    <h3>Cold Coffee Drinks</h3>
+                    <div class="drinks-cols" aria-hidden="true"><span>R</span><span>L</span></div>
+                  </header>
+                  <ul class="drinks-list" aria-label="Cold Coffee Drinks">
+                    <li><span>Iced Americano</span><span>2.75</span><span>3</span></li>
+                    <li><span>Iced Latte</span><span>3</span><span>3.25</span></li>
+                    <li><span>Iced Tea</span><span>3</span><span>---</span></li>
+                    <li><span>Iced Mocha</span><span>3.25</span><span>3.75</span></li>
+                    <li><span>Iced White Mocha</span><span>3.25</span><span>3.75</span></li>
+                    <li><span>Iced Cappuccino</span><span>3</span><span>---</span></li>
+                    <li><span>Iced Pistachio Latte</span><span>3.25</span><span>3.75</span></li>
+                    <li><span>Iced Caramel Macchiato</span><span>3.5</span><span>4</span></li>
+                    <li><span>Iced Spanish Latte</span><span>3.25</span><span>3.75</span></li>
+                    <li><span>Coffee Frappe</span><span>3.5</span><span>3.75</span></li>
+                    <li><span>Vanilla Frappe</span><span>3.5</span><span>3.75</span></li>
+                    <li><span>Caramel Frappe</span><span>3.5</span><span>3.75</span></li>
+                    <li><span>Iced Flat White</span><span>3</span><span>---</span></li>
+                  </ul>
+                  <p class="drinks-note">Add-ons: Extra shot 0.5 | flavor 0.5 | Alternative Milk 0.5</p>
+                </article>
+              </section>
+
+              <section class="drinks-panel" id="drinks-cold" role="tabpanel" aria-labelledby="drinks-tab-cold" hidden>
+                <article class="drinks-card">
+                  <header class="drinks-card-head">
+                    <h3>Cold Drinks</h3>
+                    <div class="drinks-cols" aria-hidden="true"><span>R</span><span>L</span></div>
+                  </header>
+                  <ul class="drinks-list" aria-label="Cold Drinks">
+                    <li><span>Mojito Blue Curacao</span><span>---</span><span>3</span></li>
+                    <li><span>Mojito Strawberry</span><span>---</span><span>3</span></li>
+                    <li><span>Mojito Passion Fruit</span><span>---</span><span>3</span></li>
+                    <li><span>Chocolate Milkshake</span><span>3.25</span><span>3.75</span></li>
+                    <li><span>Caramel Milkshake</span><span>3.25</span><span>3.75</span></li>
+                    <li><span>Vanila Milkshake</span><span>3.25</span><span>3.75</span></li>
+                    <li><span>Strawberry Milkshake</span><span>3.25</span><span>3.75</span></li>
+                    <li><span>Mixed Berries Milkshake</span><span>3.25</span><span>3.75</span></li>
+                    <li><span>Mixed Berries Smoothie</span><span>3</span><span>3.5</span></li>
+                    <li><span>Strawberry Smoothie</span><span>3</span><span>3.5</span></li>
+                    <li><span>Green Apple Smoothie</span><span>3</span><span>3.5</span></li>
+                  </ul>
+                </article>
+              </section>
+            </div>
+
+            <div class="drinks-actions">
+              <button class="cta drinks-next" type="button">Next: Cold Coffee</button>
+            </div>
+          </section>
+
+          <section class="menu-panel" id="panel-baked" role="tabpanel" aria-labelledby="tab-baked" hidden>
+            <article class="baked-card" aria-label="Baked menu items">
+              <header class="baked-card-head">
+                <h3>Baked Goods</h3>
+                <p>Freshly baked daily and perfect with your coffee.</p>
+              </header>
+
+              <ul class="baked-list">
+                <li>
+                  <span class="baked-name">Muffins</span>
+                  <span class="baked-tag">Fresh Batch</span>
+                </li>
+                <li>
+                  <span class="baked-name">Cookies</span>
+                  <span class="baked-tag">Classic Favorite</span>
+                </li>
+                <li>
+                  <span class="baked-name">Croissants</span>
+                  <span class="baked-tag">Buttery Layers</span>
+                </li>
+                <li>
+                  <span class="baked-name">Brownies</span>
+                  <span class="baked-tag">Rich Chocolate</span>
+                </li>
+                <li>
+                  <span class="baked-name">And many more...</span>
+                  <span class="baked-tag">Ask the Bar</span>
+                </li>
+              </ul>
+
+              <div class="baked-special" role="note" aria-label="Daily special highlight">
+                <strong>Ask for the daily special!</strong>
+                <span>New sweet selections rotate often.</span>
+              </div>
+            </article>
+
+            <div class="drinks-actions baked-actions">
+              <a class="cta" href="#form">Ask About Today&apos;s Selection</a>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section class="section community" id="community" aria-labelledby="community-title">
+      <div class="container two-col">
+        <div>
+          <p class="eyebrow">Open Community Space</p>
+          <h2 id="community-title">More Than Coffee</h2>
+          <p>
+            Ocho is a space you can actually use. No pressure, no rush, and no need to order quickly and leave.
+            Whether you are working, studying, catching up with friends, or just looking for a quiet corner, Ocho is made for you.
+          </p>
+          <ul class="community-list">
+            <li>Meet and connect.</li>
+            <li>Work and study.</li>
+            <li>Play and laugh.</li>
+          </ul>
+          <p>
+            We have good coffee, reliable Wi-Fi, flexible seating, a communal table, cozy corners, and a board game shelf for when work can wait.
+          </p>
+          <a class="cta" href="#form">Book Your Event</a>
+        </div>
+
+        <div class="community-media">
+          <video controls preload="none" playsinline poster="img/IMG_7578.jpg">
+            <source src="img/img-7571mov-nsj2cc.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <div class="community-strip">
+            <button class="media-thumb" type="button" data-full="img/IMG_7581.jpg" aria-label="Open community photo 2">
+              <img src="img/IMG_7581.jpg" alt="Coffee and pastries at Ocho" loading="lazy" decoding="async">
+            </button>
+            <button class="media-thumb" type="button" data-full="img/IMG_7781.jpg" aria-label="Open community photo 3">
+              <img src="img/IMG_7781.jpg" alt="Friends gathering at Ocho" loading="lazy" decoding="async">
+            </button>
+            <button class="media-thumb" type="button" data-full="img/IMG_7582.jpg" aria-label="Open community photo 4">
+              <img src="img/IMG_7582.jpg" alt="Warm corner inside Ocho" loading="lazy" decoding="async">
+            </button>
+            <button class="media-thumb" type="button" data-full="img/IMG_7600.JPG.jpeg" aria-label="Open community photo 5">
+              <img src="img/IMG_7600.JPG.jpeg" alt="Coffee moment at Ocho" loading="lazy" decoding="async">
+            </button>
+            <button class="media-thumb" type="button" data-full="img/IMG_7604.JPG.jpeg" aria-label="Open community photo 6">
+              <img src="img/IMG_7604.JPG.jpeg" alt="Table setup at Ocho" loading="lazy" decoding="async">
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reviews" id="reviews" aria-labelledby="reviews-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Guest Voices</p>
+          <h2 id="reviews-title">Loved by Our Guests</h2>
+        </div>
+
+        <div class="review-list">
+          <blockquote class="review-item">
+            <p>
+              Cozy atmosphere, friendly staff, and affordable prices. I love this space, its drinks, and its sense of community.
+              If you want to socialize or work in a calm place that feels welcoming and warm, OCHO is perfect.
+            </p>
+            <footer>
+              <strong>Samar Bitar</strong>
+              <span>Google Review</span>
+            </footer>
+          </blockquote>
+
+          <blockquote class="review-item">
+            <p>
+              Perfect for small events, casual gatherings, working, or just enjoying a good cup of coffee.
+            </p>
+            <footer>
+              <strong>Sakha' AlZaatreh</strong>
+              <span>Google Review</span>
+            </footer>
+          </blockquote>
+        </div>
+
+        <div class="stats" aria-label="Ocho highlights">
+          <div><span>1K+</span><p>Guests</p></div>
+          <div><span>10K+</span><p>Cups Served</p></div>
+          <div><span>2K+</span><p>Baked Sweets</p></div>
+          <div><span>1M+</span><p>Smiles</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section form" id="form" aria-labelledby="form-title">
+      <div class="container two-col">
+        <div>
+          <p class="eyebrow">Event Bookings</p>
+          <h2 id="form-title">Host Your Next Event at Ocho</h2>
+          <p>
+            Workshops, meetups, launches, birthdays, team gatherings, and small celebrations all fit here.
+            Booking is simple. Send us your date, guest count, and event idea, and we will take it from there.
+          </p>
+          <ul class="community-list">
+            <li>Full access to the space</li>
+            <li>Coffee and drinks</li>
+            <li>Flexible seating, Wi-Fi, and power</li>
+            <li>Games, activities, and on-site support</li>
+          </ul>
+          <p class="contact-inline">
+            <strong>Instagram:</strong>
+            <a href="https://www.instagram.com/ochocoffeehouse/" target="_blank" rel="noopener">@ochocoffeehouse</a>
+          </p>
+        </div>
+
+        <form class="booking-form" id="booking-form" action="https://script.google.com/macros/s/AKfycbyaibrLmUre-5PKzdKDcmMMwtpKupnuoU2IcFkspV_3qd4xtz-w-Qa_zWhP-Ilq1Ur_/exec" method="post" novalidate>
+          <div class="field">
+            <label for="name">Full Name</label>
+            <input id="name" name="name" type="text" required autocomplete="name">
+          </div>
+
+          <div class="field two-up">
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" required autocomplete="email">
+            </div>
+            <div>
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel" required autocomplete="tel">
+            </div>
+          </div>
+
+          <div class="field two-up">
+            <div>
+              <label for="event-date">Event Date</label>
+              <input id="event-date" name="event_date" type="date" required>
+            </div>
+            <div>
+              <label for="guests">Guest Count</label>
+              <input id="guests" name="guests" type="number" min="2" max="150" required>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="event-type">Event Type</label>
+            <input id="event-type" name="subject" type="text" placeholder="Workshop, meetup, birthday, team gathering" required>
+          </div>
+
+          <div class="field">
+            <label for="message">Event Idea</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+          </div>
+
+          <button class="cta submit-btn" type="submit">Book Your Event</button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>Ocho Coffee House</h3>
+        <p>Pull up a chair. Stay a while.</p>
+        <p>Rabieh, Amman, Jordan</p>
+        <p>
+          <a class="footer-contact-link" href="https://maps.app.goo.gl/QwoM49T8VCVzHi3q8" target="_blank" rel="noopener" aria-label="Open Ocho Coffee House location on Google Maps">
+            <svg viewBox="0 0 24 24" class="map-icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+              <path fill="#34A853" d="M12 2c-4.1 0-7.4 3.3-7.4 7.4 0 5 6.2 11.8 7 12.6.2.2.5.2.7 0 .8-.8 7-7.6 7-12.6C19.4 5.3 16.1 2 12 2z"/>
+              <circle cx="12" cy="9.4" r="3.1" fill="#4285F4"/>
+              <path fill="#FBBC05" d="M12 2c2.4 0 4.5 1.2 5.9 3l-2.5 1.6c-.7-1-2-1.7-3.4-1.7V2z"/>
+              <path fill="#EA4335" d="M19.4 9.4c0 2.3-1.3 5-2.9 7.4l-2.6-1.8c1.2-1.9 2-3.8 2-5.6 0-.8-.2-1.6-.5-2.3L18 5c.9 1.3 1.4 2.8 1.4 4.4z"/>
+            </svg>
+            <span>View on Google Maps</span>
+          </a>
+        </p>
+        <p>
+          <a class="footer-contact-link" href="tel:0790915458" aria-label="Call Ocho Coffee House">
+            <i class="fa fa-phone phone-icon" aria-hidden="true"></i>
+            <span>0790915458</span>
+          </a>
+        </p>
+      </div>
+      <div>
+        <h4>Hours</h4>
+        <p>Daily: 8AM-12AM</p>
+        <p>Friday: 2:30PM-12AM</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <nav class="footer-links" aria-label="Footer">
+          <a href="#about">About Us</a>
+          <a href="#menu">Menu</a>
+          <a href="#community">Community</a>
+          <a href="#form">Book Your Event</a>
+        </nav>
+      </div>
+      <div class="footer-follow">
+        <h4>Follow</h4>
+        <a class="social-link" href="https://www.instagram.com/ochocoffeehouse/" target="_blank" rel="noopener">
+          <i class="fa fa-instagram" aria-hidden="true"></i> @ochocoffeehouse
+        </a>
+        <a class="social-link" href="mailto:info@ochocoffeehouse.com" aria-label="Email Ocho Coffee House">
+          <i class="fa fa-envelope" aria-hidden="true"></i> info@ochocoffeehouse.com
+        </a>
+        <a class="talabat-footer-link" href="https://www.talabat.com/jordan/ocho-coffee-house" target="_blank" rel="noopener" aria-label="Order on Talabat now">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="talabat-logo-svg" aria-hidden="true" focusable="false">
+            <circle cx="50" cy="50" r="48" fill="#EC1C24"/>
+            <text x="50" y="65" font-size="56" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="Arial, sans-serif">t</text>
+          </svg>
+          <span>Order on Talabat now</span>
+        </a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2026 Ocho Coffee House. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" id="lightbox-close" type="button" aria-label="Close image">&times;</button>
+    <img id="lightbox-image" src="" alt="Expanded community photo">
+  </div>
+
+  <script type="module" src="js/circular-gallery.js"></script>
+  <script src="js/landing.js"></script>
+</body>
+</html>
