@@ -5,6 +5,16 @@
   var lightboxImage = document.getElementById('lightbox-image');
   var lightboxClose = document.getElementById('lightbox-close');
 
+  function t(key, vars, fallback) {
+    if (window.OchoI18n && typeof window.OchoI18n.t === 'function') {
+      return window.OchoI18n.t(key, vars || {});
+    }
+    if (!fallback) return key;
+    return String(fallback).replace(/\{([^}]+)\}/g, function (match, token) {
+      return Object.prototype.hasOwnProperty.call(vars || {}, token) ? vars[token] : match;
+    });
+  }
+
   function closeLightbox() {
     if (!lightbox) return;
     lightbox.classList.remove('is-open');
@@ -68,22 +78,114 @@
   function initMenuTabs() {
     var tabs = Array.prototype.slice.call(document.querySelectorAll('.menu-tab'));
     var panels = Array.prototype.slice.call(document.querySelectorAll('.menu-panel'));
+    var navLinks = Array.prototype.slice.call(document.querySelectorAll('.menu-card-link'));
+    var drinksPanel = document.getElementById('panel-drinks');
+    var drinksCards = drinksPanel ? Array.prototype.slice.call(drinksPanel.querySelectorAll('.menu-surface-card')) : [];
+    var mobileQuery = window.matchMedia('(max-width: 768px)');
+    var activeDrinksAnchor = 'stack-hot';
     if (!tabs.length || !panels.length) return;
 
-    function activateTab(tab) {
+    function isMobileView() {
+      return mobileQuery.matches;
+    }
+
+    function setDrinksLinkState(activeAnchorId) {
+      navLinks.forEach(function (link) {
+        var isDrinksLink = link.getAttribute('data-menu-target') === 'panel-drinks';
+        var isActive = isDrinksLink && link.getAttribute('data-menu-anchor') === activeAnchorId;
+        link.classList.toggle('is-active', isActive);
+      });
+    }
+
+    function syncDrinksCardsForViewport(anchorId) {
+      if (!drinksCards.length) return;
+
+      if (!isMobileView()) {
+        drinksCards.forEach(function (card) {
+          card.hidden = false;
+        });
+        setDrinksLinkState(anchorId || activeDrinksAnchor);
+        return;
+      }
+
+      var targetAnchor = anchorId || activeDrinksAnchor;
+      drinksCards.forEach(function (card) {
+        card.hidden = card.id !== targetAnchor;
+      });
+      setDrinksLinkState(targetAnchor);
+    }
+
+    function emitPanelChange(panelId) {
+      window.dispatchEvent(new CustomEvent('ocho:menu-panel-change', {
+        detail: { panelId: panelId || null }
+      }));
+    }
+
+    function collapseTabs() {
+      tabs.forEach(function (item) {
+        item.classList.remove('is-active');
+        item.setAttribute('aria-selected', 'false');
+        item.setAttribute('tabindex', '0');
+      });
+
+      panels.forEach(function (panel) {
+        panel.classList.remove('is-active');
+        panel.hidden = true;
+      });
+
+      emitPanelChange(null);
+    }
+
+    function activateTab(tab, options) {
       var targetId = tab.getAttribute('data-menu-target');
+      var isAlreadyActive = tab.classList.contains('is-active');
+      var preserveOpen = options && options.preserveOpen;
+
+      if (isAlreadyActive && !preserveOpen) {
+        collapseTabs();
+        return;
+      }
 
       tabs.forEach(function (item) {
         var isActive = item === tab;
         item.classList.toggle('is-active', isActive);
         item.setAttribute('aria-selected', isActive ? 'true' : 'false');
-        item.setAttribute('tabindex', isActive ? '0' : '-1');
+        item.setAttribute('tabindex', '0');
       });
 
       panels.forEach(function (panel) {
         var show = panel.id === targetId;
         panel.classList.toggle('is-active', show);
         panel.hidden = !show;
+      });
+
+      emitPanelChange(targetId);
+    }
+
+    function activateTarget(targetId, anchorId) {
+      var tab = tabs.find(function (item) {
+        return item.getAttribute('data-menu-target') === targetId;
+      });
+      if (!tab) return;
+
+      if (targetId === 'panel-drinks' && anchorId) {
+        activeDrinksAnchor = anchorId;
+        syncDrinksCardsForViewport(anchorId);
+      }
+
+      activateTab(tab, { preserveOpen: true });
+
+      if (!anchorId) return;
+
+      if (targetId === 'panel-drinks' && isMobileView()) {
+        return;
+      }
+
+      requestAnimationFrame(function () {
+        var anchor = document.getElementById(anchorId);
+        if (anchor) {
+          anchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
       });
     }
 
@@ -100,15 +202,37 @@
           nextIndex = (currentIndex + 1) % tabs.length;
         } else if (event.key === 'ArrowLeft') {
           nextIndex = (currentIndex - 1 + tabs.length) % tabs.length;
+        } else if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          activateTab(tab);
+          return;
         } else {
           return;
         }
 
         event.preventDefault();
         tabs[nextIndex].focus();
-        activateTab(tabs[nextIndex]);
       });
     });
+
+    navLinks.forEach(function (link) {
+      link.addEventListener('click', function () {
+        activateTarget(link.getAttribute('data-menu-target'), link.getAttribute('data-menu-anchor'));
+      });
+    });
+
+    if (mobileQuery.addEventListener) {
+      mobileQuery.addEventListener('change', function () {
+        syncDrinksCardsForViewport(activeDrinksAnchor);
+      });
+    } else if (mobileQuery.addListener) {
+      mobileQuery.addListener(function () {
+        syncDrinksCardsForViewport(activeDrinksAnchor);
+      });
+    }
+
+    syncDrinksCardsForViewport(activeDrinksAnchor);
+    collapseTabs();
   }
 
   initMenuTabs();
@@ -131,7 +255,7 @@
     }
 
     function updateNextButton(index) {
-      nextButton.textContent = 'Next: ' + nextLabel(index);
+      nextButton.textContent = t('drinks.next', { next: nextLabel(index) }, 'Next: {next}');
     }
 
     function activateDrinksTab(tab) {
@@ -184,6 +308,11 @@
       var nextIndex = idx < 0 ? 0 : (idx + 1) % tabs.length;
       activateDrinksTab(tabs[nextIndex]);
       tabs[nextIndex].focus();
+    });
+
+    window.addEventListener('ocho:lang', function () {
+      var idx = activeIndex();
+      updateNextButton(Math.max(idx, 0));
     });
 
     updateNextButton(Math.max(activeIndex(), 0));
@@ -241,6 +370,8 @@
 
   // Delay allows the module gallery a chance to initialize first.
   window.setTimeout(initHeroFallbackSlider, 1200);
+  window.setTimeout(initHeroFallbackSlider, 3500);
+  window.addEventListener('load', initHeroFallbackSlider, { once: true });
 
   var form = document.getElementById('booking-form');
   var status = document.getElementById('form-status');
@@ -262,7 +393,7 @@
     if (!form.checkValidity()) {
       var firstInvalid = form.querySelector(':invalid');
       var fieldLabel = labelForField(firstInvalid);
-      status.textContent = 'Please check ' + fieldLabel + ' and try again.';
+      status.textContent = t('validation.required', { field: fieldLabel }, 'Please check {field} and try again.');
       if (firstInvalid && typeof firstInvalid.reportValidity === 'function') {
         firstInvalid.reportValidity();
         firstInvalid.focus();
@@ -275,14 +406,14 @@
     today.setHours(0, 0, 0, 0);
 
     if (!selectedDate || isNaN(selectedDate.getTime()) || selectedDate < today) {
-      status.textContent = 'Please select a valid future date for your event.';
+      status.textContent = t('validation.date', {}, 'Please select a valid future date for your event.');
       eventDate.focus();
       return;
     }
 
     var guests = parseInt(guestCount.value, 10);
     if (isNaN(guests) || guests < 2) {
-      status.textContent = 'Guest count must be at least 2.';
+      status.textContent = t('validation.guests', {}, 'Guest count must be at least 2.');
       guestCount.focus();
       return;
     }
@@ -292,7 +423,7 @@
     var emailInput = document.getElementById('email');
     var submittedEmail = emailInput && emailInput.value ? emailInput.value.trim() : 'your email';
 
-    status.textContent = 'Sending your request...';
+    status.textContent = t('form.sending', {}, 'Sending your request...');
     isSubmitting = true;
 
     try {
@@ -302,10 +433,10 @@
         mode: 'no-cors'
       });
 
-      status.textContent = 'We received your request and will contact you within 24 hours at ' + submittedEmail + '.';
+      status.textContent = t('form.success', { email: submittedEmail }, 'We received your request and will contact you within 24 hours at {email}.');
       form.reset();
     } catch (error) {
-      status.textContent = 'Something went wrong while sending. Please try again in a moment.';
+      status.textContent = t('form.error', {}, 'Something went wrong while sending. Please try again in a moment.');
     } finally {
       isSubmitting = false;
     }

@@ -1,11 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Ocho Coffee House in Rabieh, Amman. A neighborhood coffee house and open community space for work, conversation, games, and small events.">
   <meta name="keywords" content="Ocho Coffee House, Rabieh, Amman, coffee, community space, event booking">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Ocho Coffee House | Pull Up a Chair. Stay a While.">
+  <meta property="og:description" content="Ocho Coffee House in Rabieh, Amman. A neighborhood coffee house and open community space for work, conversation, games, and small events.">
+  <meta property="og:url" content="https://YOUR_DOMAIN/">
+  <link rel="canonical" href="https://YOUR_DOMAIN/">
+  <link rel="alternate" hreflang="en" href="https://YOUR_DOMAIN/">
+  <link rel="alternate" hreflang="ar" href="https://YOUR_DOMAIN/?lang=ar">
+  <link rel="alternate" hreflang="x-default" href="https://YOUR_DOMAIN/">
   <title>Ocho Coffee House | Pull Up a Chair. Stay a While.</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="shortcut icon" href="img/fav.png">
   <link rel="stylesheet" href="css/font-awesome.min.css">
   <link rel="stylesheet" href="css/landing.css">
@@ -31,6 +40,11 @@
         <a href="#reviews">Reviews</a>
         <a href="#form">Form</a>
       </nav>
+
+      <div class="lang-switch" role="group" aria-label="Language switch">
+        <button class="lang-btn" type="button" data-lang="en" aria-pressed="true">EN</button>
+        <button class="lang-btn" type="button" data-lang="ar" aria-pressed="false">AR</button>
+      </div>
 
       <a class="cta cta-nav" href="#form">Book Your Event</a>
     </div>
@@ -83,24 +97,37 @@
           <p class="section-note">Current selection shown below. Share your final menu sheet and prices for a final publishing pass.</p>
         </div>
 
-        <div class="menu-switch" role="tablist" aria-label="Menu sections">
-          <button class="menu-tab is-active" id="tab-drinks" type="button" role="tab" aria-selected="true" aria-controls="panel-drinks" data-menu-target="panel-drinks">Drinks</button>
-          <button class="menu-tab" id="tab-baked" type="button" role="tab" aria-selected="false" aria-controls="panel-baked" data-menu-target="panel-baked">Baked</button>
+        <div class="menu-card-nav" role="tablist" aria-label="Menu sections">
+          <article class="menu-nav-card" id="menu-card-drinks">
+            <p class="menu-nav-tag">Browse</p>
+            <button class="menu-tab menu-card-trigger" id="tab-drinks" type="button" role="tab" aria-selected="false" aria-controls="panel-drinks" data-menu-target="panel-drinks">Drinks</button>
+            <p class="menu-nav-note">Hot coffee, cold coffee, and cold drinks.</p>
+            <div class="menu-card-links" aria-label="Drink categories">
+              <button class="menu-card-link" id="menu-link-hot" type="button" data-menu-target="panel-drinks" data-menu-anchor="stack-hot">Hot Coffee</button>
+              <button class="menu-card-link" id="menu-link-cold-coffee" type="button" data-menu-target="panel-drinks" data-menu-anchor="stack-cold-coffee">Cold Coffee</button>
+              <button class="menu-card-link" id="menu-link-cold" type="button" data-menu-target="panel-drinks" data-menu-anchor="stack-cold">Cold Drinks</button>
+            </div>
+          </article>
+
+          <article class="menu-nav-card" id="menu-card-food">
+            <p class="menu-nav-tag">Kitchen</p>
+            <button class="menu-tab menu-card-trigger" id="tab-food" type="button" role="tab" aria-selected="false" aria-controls="panel-food" data-menu-target="panel-food">Food</button>
+            <p class="menu-nav-note">Fresh plates, sandwiches, and bakes.</p>
+            <div class="menu-card-links" aria-label="Food categories">
+              <button class="menu-card-link" id="menu-link-food" type="button" data-menu-target="panel-food" data-menu-anchor="stack-food">View Food</button>
+            </div>
+          </article>
         </div>
 
         <div class="menu-panels">
-          <section class="menu-panel is-active" id="panel-drinks" role="tabpanel" aria-labelledby="tab-drinks">
-            <div class="drinks-switch" role="tablist" aria-label="Drinks sections">
-              <button class="drinks-tab is-active" id="drinks-tab-hot" type="button" role="tab" aria-selected="true" aria-controls="drinks-hot" data-drinks-target="drinks-hot">Hot Coffee</button>
-              <button class="drinks-tab" id="drinks-tab-cold-coffee" type="button" role="tab" aria-selected="false" aria-controls="drinks-cold-coffee" data-drinks-target="drinks-cold-coffee">Cold Coffee</button>
-              <button class="drinks-tab" id="drinks-tab-cold" type="button" role="tab" aria-selected="false" aria-controls="drinks-cold" data-drinks-target="drinks-cold">Cold Drinks</button>
-            </div>
-
-            <div class="drinks-panels">
-              <section class="drinks-panel is-active" id="drinks-hot" role="tabpanel" aria-labelledby="drinks-tab-hot">
-                <article class="drinks-card">
-                  <header class="drinks-card-head">
-                    <h3>Hot Coffee Drinks</h3>
+          <section class="menu-panel" id="panel-drinks" role="tabpanel" aria-labelledby="tab-drinks" hidden>
+            <div class="menu-card-grid menu-drinks-grid">
+                <article class="menu-stack-card menu-surface-card" id="stack-hot">
+                  <header class="menu-stack-head">
+                    <div>
+                      <p class="menu-stack-kicker">Hot Coffee</p>
+                      <h3>Hot Coffee Drinks</h3>
+                    </div>
                     <div class="drinks-cols" aria-hidden="true"><span>R</span><span>L</span></div>
                   </header>
                   <ul class="drinks-list" aria-label="Hot Coffee Drinks">
@@ -122,12 +149,13 @@
                     <li><span>Cortado</span><span>3</span><span>---</span></li>
                   </ul>
                 </article>
-              </section>
 
-              <section class="drinks-panel" id="drinks-cold-coffee" role="tabpanel" aria-labelledby="drinks-tab-cold-coffee" hidden>
-                <article class="drinks-card">
-                  <header class="drinks-card-head">
-                    <h3>Cold Coffee Drinks</h3>
+                <article class="menu-stack-card menu-surface-card" id="stack-cold-coffee">
+                  <header class="menu-stack-head">
+                    <div>
+                      <p class="menu-stack-kicker">Cold Coffee</p>
+                      <h3>Cold Coffee Drinks</h3>
+                    </div>
                     <div class="drinks-cols" aria-hidden="true"><span>R</span><span>L</span></div>
                   </header>
                   <ul class="drinks-list" aria-label="Cold Coffee Drinks">
@@ -147,12 +175,13 @@
                   </ul>
                   <p class="drinks-note">Add-ons: Extra shot 0.5 | flavor 0.5 | Alternative Milk 0.5</p>
                 </article>
-              </section>
 
-              <section class="drinks-panel" id="drinks-cold" role="tabpanel" aria-labelledby="drinks-tab-cold" hidden>
-                <article class="drinks-card">
-                  <header class="drinks-card-head">
-                    <h3>Cold Drinks</h3>
+                <article class="menu-stack-card menu-surface-card" id="stack-cold">
+                  <header class="menu-stack-head">
+                    <div>
+                      <p class="menu-stack-kicker">Cold Drinks</p>
+                      <h3>Cold Drinks</h3>
+                    </div>
                     <div class="drinks-cols" aria-hidden="true"><span>R</span><span>L</span></div>
                   </header>
                   <ul class="drinks-list" aria-label="Cold Drinks">
@@ -167,54 +196,33 @@
                     <li><span>Mixed Berries Smoothie</span><span>3</span><span>3.5</span></li>
                     <li><span>Strawberry Smoothie</span><span>3</span><span>3.5</span></li>
                     <li><span>Green Apple Smoothie</span><span>3</span><span>3.5</span></li>
+                    <li><span>Fruity Frap</span><span>---</span><span>3.75</span></li>
                   </ul>
                 </article>
-              </section>
-            </div>
-
-            <div class="drinks-actions">
-              <button class="cta drinks-next" type="button">Next: Cold Coffee</button>
             </div>
           </section>
 
-          <section class="menu-panel" id="panel-baked" role="tabpanel" aria-labelledby="tab-baked" hidden>
-            <article class="baked-card" aria-label="Baked menu items">
-              <header class="baked-card-head">
-                <h3>Baked Goods</h3>
-                <p>Freshly baked daily and perfect with your coffee.</p>
-              </header>
+          <section class="menu-panel" id="panel-food" role="tabpanel" aria-labelledby="tab-food" hidden>
+            <div class="menu-card-grid menu-food-grid">
+                <article class="menu-stack-card menu-stack-card-food menu-surface-card" id="stack-food">
+                  <header class="menu-stack-head menu-stack-head-food">
+                    <div>
+                      <p class="menu-stack-kicker">Food</p>
+                      <h3>Food</h3>
+                    </div>
+                    <span class="menu-inline-note">Freshly prepared daily</span>
+                  </header>
 
-              <ul class="baked-list">
-                <li>
-                  <span class="baked-name">Muffins</span>
-                  <span class="baked-tag">Fresh Batch</span>
-                </li>
-                <li>
-                  <span class="baked-name">Cookies</span>
-                  <span class="baked-tag">Classic Favorite</span>
-                </li>
-                <li>
-                  <span class="baked-name">Croissants</span>
-                  <span class="baked-tag">Buttery Layers</span>
-                </li>
-                <li>
-                  <span class="baked-name">Brownies</span>
-                  <span class="baked-tag">Rich Chocolate</span>
-                </li>
-                <li>
-                  <span class="baked-name">And many more...</span>
-                  <span class="baked-tag">Ask the Bar</span>
-                </li>
-              </ul>
-
-              <div class="baked-special" role="note" aria-label="Daily special highlight">
-                <strong>Ask for the daily special!</strong>
-                <span>New sweet selections rotate often.</span>
-              </div>
-            </article>
-
-            <div class="drinks-actions baked-actions">
-              <a class="cta" href="#form">Ask About Today&apos;s Selection</a>
+                  <ul class="menu-compact-list" aria-label="Food items">
+                    <li><span>Ocho Salad</span><span>3.5</span></li>
+                    <li><span>Greek Salad</span><span>3.25</span></li>
+                    <li><span>Roast beef / smoked turkey / mixed cheese / halloumi with pesto Sandwiches</span><span>2.75</span></li>
+                    <li><span>Grilled chicken Sandwich</span><span>3.5</span></li>
+                    <li><span>Zaatar and Cheese muffin</span><span>2.1</span></li>
+                    <li><span>Brownies</span><span>2.25</span></li>
+                    <li><span>Chocolate Chip Cookies</span><span>1.8</span></li>
+                  </ul>
+                </article>
             </div>
           </section>
         </div>
@@ -223,7 +231,7 @@
 
     <section class="section community" id="community" aria-labelledby="community-title">
       <div class="container two-col">
-        <div>
+        <div class="community-copy">
           <p class="eyebrow">Open Community Space</p>
           <h2 id="community-title">More Than Coffee</h2>
           <p>
@@ -238,14 +246,6 @@
           <p>
             We have good coffee, reliable Wi-Fi, flexible seating, a communal table, cozy corners, and a board game shelf for when work can wait.
           </p>
-          <a class="cta" href="#form">Book Your Event</a>
-        </div>
-
-        <div class="community-media">
-          <video controls preload="none" playsinline poster="img/IMG_7578.jpg">
-            <source src="img/img-7571mov-nsj2cc.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
           <div class="community-strip">
             <button class="media-thumb" type="button" data-full="img/IMG_7581.jpg" aria-label="Open community photo 2">
               <img src="img/IMG_7581.jpg" alt="Coffee and pastries at Ocho" loading="lazy" decoding="async">
@@ -263,6 +263,14 @@
               <img src="img/IMG_7604.JPG.jpeg" alt="Table setup at Ocho" loading="lazy" decoding="async">
             </button>
           </div>
+          <a class="cta" href="#form">Book Your Event</a>
+        </div>
+
+        <div class="community-media">
+          <video controls preload="none" playsinline poster="img/IMG_7578.jpg">
+            <source src="img/img-7571mov-nsj2cc.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
         </div>
       </div>
     </section>
@@ -325,6 +333,9 @@
             <strong>Instagram:</strong>
             <a href="https://www.instagram.com/ochocoffeehouse/" target="_blank" rel="noopener">@ochocoffeehouse</a>
           </p>
+          <figure class="form-highlight-image">
+            <img src="img/elements/WhatsApp%20Image%202026-04-27%20at%207.58.35%20PM.jpeg" alt="Event highlight at Ocho" loading="lazy" decoding="async">
+          </figure>
         </div>
 
         <form class="booking-form" id="booking-form" action="https://script.google.com/macros/s/AKfycbyaibrLmUre-5PKzdKDcmMMwtpKupnuoU2IcFkspV_3qd4xtz-w-Qa_zWhP-Ilq1Ur_/exec" method="post" novalidate>
@@ -421,10 +432,14 @@
         <a class="talabat-footer-link" href="https://www.talabat.com/jordan/ocho-coffee-house" target="_blank" rel="noopener" aria-label="Order on Talabat now">
           <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="talabat-logo-svg" aria-hidden="true" focusable="false">
             <circle cx="50" cy="50" r="48" fill="#EC1C24"/>
-            <text x="50" y="65" font-size="56" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="Arial, sans-serif">t</text>
+            <text x="50" y="65" font-size="56" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="Poppins, sans-serif">t</text>
           </svg>
           <span>Order on Talabat now</span>
         </a>
+        <div class="qr-card" aria-label="QR code for Ocho Coffee House">
+          <img src="img/ocho qr code.png" alt="Ocho Coffee House QR code" loading="lazy" decoding="async">
+          <p>Scan for quick access</p>
+        </div>
       </div>
     </div>
     <div class="container footer-bottom">
@@ -437,6 +452,9 @@
     <img id="lightbox-image" src="" alt="Expanded community photo">
   </div>
 
+  <script src="js/i18n/en.js"></script>
+  <script src="js/i18n/ar.js"></script>
+  <script src="js/i18n.js"></script>
   <script type="module" src="js/circular-gallery.js"></script>
   <script src="js/landing.js"></script>
 </body>
