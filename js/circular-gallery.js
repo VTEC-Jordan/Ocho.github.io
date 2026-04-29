@@ -199,7 +199,7 @@ class Media {
 
   createShader() {
     const texture = new Texture(this.gl, {
-      generateMipmaps: true
+      generateMipmaps: false
     });
 
     this.program = new Program(this.gl, {
@@ -264,6 +264,8 @@ class Media {
     });
 
     const img = new Image();
+    img.decoding = 'async';
+    img.fetchPriority = 'low';
     img.src = this.image;
     img.onload = () => {
       texture.image = img;
@@ -364,15 +366,18 @@ class App {
     this.onResize();
     this.createGeometry();
     this.createMedias(items, bend, textColor, borderRadius, font);
-    this.update();
+    this.isInViewport = true;
+    this.isPageVisible = !document.hidden;
+    this.observeVisibility();
+    this.startAnimation();
     this.addEventListeners();
   }
 
   createRenderer() {
     this.renderer = new Renderer({
       alpha: true,
-      antialias: true,
-      dpr: Math.min(window.devicePixelRatio || 1, 2)
+      antialias: false,
+      dpr: Math.min(window.devicePixelRatio || 1, 1.25)
     });
     this.gl = this.renderer.gl;
     this.gl.clearColor(0, 0, 0, 0);
@@ -391,9 +396,48 @@ class App {
 
   createGeometry() {
     this.planeGeometry = new Plane(this.gl, {
-      heightSegments: 50,
-      widthSegments: 100
+      heightSegments: 24,
+      widthSegments: 48
     });
+  }
+
+  startAnimation() {
+    if (this.raf) return;
+    this.update();
+  }
+
+  stopAnimation() {
+    if (!this.raf) return;
+    window.cancelAnimationFrame(this.raf);
+    this.raf = null;
+  }
+
+  syncAnimationState() {
+    if (this.isPageVisible && this.isInViewport) {
+      this.startAnimation();
+      return;
+    }
+
+    this.stopAnimation();
+  }
+
+  onVisibilityChange() {
+    this.isPageVisible = !document.hidden;
+    this.syncAnimationState();
+  }
+
+  observeVisibility() {
+    if (!('IntersectionObserver' in window)) return;
+
+    this.viewportObserver = new IntersectionObserver((entries) => {
+      const entry = entries[0];
+      this.isInViewport = !entry || entry.isIntersecting || entry.intersectionRatio > 0;
+      this.syncAnimationState();
+    }, {
+      threshold: 0.01
+    });
+
+    this.viewportObserver.observe(this.container);
   }
 
   createMedias(items, bend = 3, textColor, borderRadius, font) {
@@ -484,6 +528,11 @@ class App {
   }
 
   update() {
+    if (!this.isPageVisible || !this.isInViewport) {
+      this.raf = null;
+      return;
+    }
+
     // Keep hero motion running automatically, independent from user input.
     this.scroll.target += this.autoScrollSpeed;
     this.scroll.current = lerp(this.scroll.current, this.scroll.target, this.scroll.ease);
@@ -500,6 +549,7 @@ class App {
 
   addEventListeners() {
     window.addEventListener('resize', this.onResize);
+    document.addEventListener('visibilitychange', this.onVisibilityChange);
     window.addEventListener('mousewheel', this.onWheel, { passive: true });
     window.addEventListener('wheel', this.onWheel, { passive: true });
     window.addEventListener('mousedown', this.onTouchDown);
@@ -513,6 +563,7 @@ class App {
   destroy() {
     window.cancelAnimationFrame(this.raf);
     window.removeEventListener('resize', this.onResize);
+    document.removeEventListener('visibilitychange', this.onVisibilityChange);
     window.removeEventListener('mousewheel', this.onWheel);
     window.removeEventListener('wheel', this.onWheel);
     window.removeEventListener('mousedown', this.onTouchDown);
@@ -521,6 +572,11 @@ class App {
     window.removeEventListener('touchstart', this.onTouchDown);
     window.removeEventListener('touchmove', this.onTouchMove);
     window.removeEventListener('touchend', this.onTouchUp);
+
+    if (this.viewportObserver) {
+      this.viewportObserver.disconnect();
+      this.viewportObserver = null;
+    }
 
     if (this.renderer && this.renderer.gl && this.renderer.gl.canvas.parentNode) {
       this.renderer.gl.canvas.parentNode.removeChild(this.renderer.gl.canvas);
