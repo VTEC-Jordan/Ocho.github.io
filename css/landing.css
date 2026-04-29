@@ -1289,10 +1289,26 @@ p {
   font-size: 0.8rem;
 }
 
+.qr-mobile-link {
+  display: none;
+  margin-top: 2px;
+  color: #f2ebe0;
+  font-size: 0.78rem;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+  .qr-mobile-link {
+    display: inline-block;
+  }
+}
+
 .social-link,
 .footer-links a,
 .talabat-footer-link,
 .footer-contact-link,
+.qr-mobile-link,
 .media-thumb,
 .menu-toggle,
 .cta,
@@ -1304,6 +1320,7 @@ p {
 .footer-links a:focus-visible,
 .talabat-footer-link:focus-visible,
 .footer-contact-link:focus-visible,
+.qr-mobile-link:focus-visible,
 .media-thumb:focus-visible,
 .menu-toggle:focus-visible,
 .lang-btn:focus-visible,
@@ -1329,6 +1346,10 @@ html[dir="rtl"] .site-nav {
 html[dir="rtl"] .community-list {
   padding-left: 0;
   padding-right: 1.2rem;
+}
+
+html[dir="rtl"] .qr-card {
+  justify-items: end;
 }
 
 html[dir="rtl"] .menu-row,

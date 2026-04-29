@@ -29,8 +29,8 @@ window.OCHO_I18N.en = {
 		".hero-mobile-cta": "Book Your Event",
 		"#about .eyebrow": "The Story of Ocho",
 		"#about-title": "Built by Two Friends, Open to Everyone",
-		"#about .two-col > div > p:nth-of-type(1)": "Ocho began in August 2025, when two friends turned a long-held dream into a place they wanted to exist in their own neighborhood. The idea was simple: create a coffee house that feels warm, open, and easy to spend time in.",
-		"#about .two-col > div > p:nth-of-type(2)": "We chose the name Ocho because 8, turned on its side, becomes infinity. For us, it reflects the feeling we wanted the space to have: where time slows down, conversations flow, and people feel at home.",
+		"#about .two-col > div > p:nth-of-type(2)": "Ocho began in August 2025, when two friends turned a long-held dream into a place they wanted to exist in their own neighborhood. The idea was simple: create a coffee house that feels warm, open, and easy to spend time in.",
+		"#about .two-col > div > p:nth-of-type(3)": "We chose the name Ocho because 8, turned on its side, becomes infinity. For us, it reflects the feeling we wanted the space to have: where time slows down, conversations flow, and people feel at home.",
 		"#menu .section-head .eyebrow": "Menu",
 		"#menu-title": "Coffee Crafted for Slow Mornings",
 		"#menu .section-note": "Current selection shown below. Share your final menu sheet and prices for a final publishing pass.",
@@ -56,8 +56,8 @@ window.OCHO_I18N.en = {
 		"#stack-cold-coffee .drinks-note": "Add-ons: Extra shot 0.5 | flavor 0.5 | Alternative Milk 0.5",
 		"#community .eyebrow": "Open Community Space",
 		"#community-title": "More Than Coffee",
-		"#community .two-col > div > p:nth-of-type(1)": "Ocho is a space you can actually use. No pressure, no rush, and no need to order quickly and leave. Whether you are working, studying, catching up with friends, or just looking for a quiet corner, Ocho is made for you.",
-		"#community .two-col > div > p:nth-of-type(2)": "We have good coffee, reliable Wi-Fi, flexible seating, a communal table, cozy corners, and a board game shelf for when work can wait.",
+		"#community .two-col > div > p:nth-of-type(2)": "Ocho is a space you can actually use. No pressure, no rush, and no need to order quickly and leave. Whether you are working, studying, catching up with friends, or just looking for a quiet corner, Ocho is made for you.",
+		"#community .two-col > div > p:nth-of-type(3)": "We have good coffee, reliable Wi-Fi, flexible seating, a communal table, cozy corners, and a board game shelf for when work can wait.",
 		"#community .cta": "Book Your Event",
 		"#reviews .section-head .eyebrow": "Guest Voices",
 		"#reviews-title": "Loved by Our Guests",
@@ -67,7 +67,7 @@ window.OCHO_I18N.en = {
 		"#reviews .review-list .review-item:last-child footer span": "Google Review",
 		"#form .eyebrow": "Event Bookings",
 		"#form-title": "Host Your Next Event at Ocho",
-		"#form .two-col > div > p:nth-of-type(1)": "Workshops, meetups, launches, birthdays, team gatherings, and small celebrations all fit here. Booking is simple. Send us your date, guest count, and event idea, and we will take it from there.",
+		"#form .two-col > div > p:nth-of-type(2)": "Workshops, meetups, launches, birthdays, team gatherings, and small celebrations all fit here. Booking is simple. Send us your date, guest count, and event idea, and we will take it from there.",
 		"#form .contact-inline strong": "Instagram:",
 		"label[for='name']": "Full Name",
 		"label[for='email']": "Email",
@@ -91,7 +91,8 @@ window.OCHO_I18N.en = {
 		"footer .footer-grid > div:nth-child(3) a[href='#form']": "Book Your Event",
 		"footer .footer-follow h4": "Follow",
 		"footer .footer-follow .talabat-footer-link span": "Order on Talabat now",
-		"footer .footer-follow .qr-card p": "Scan for quick access",
+		"footer .footer-follow .qr-card p": "Loyalty Card - Scan for rewards",
+		"footer .footer-follow .qr-card .qr-mobile-link": "Open Loyalty Card",
 		"footer .footer-bottom p": "© 2026 Ocho Coffee House. All rights reserved."
 	},
 	lists: {
@@ -127,6 +128,12 @@ window.OCHO_I18N.en = {
 		},
 		".lang-switch": {
 			"aria-label": "Language switch"
+		},
+		".qr-card": {
+			"aria-label": "Ocho loyalty card QR code"
+		},
+		".qr-mobile-link": {
+			"aria-label": "Open Ocho loyalty card"
 		},
 		"#lightbox-close": {
 			"aria-label": "Close image"
